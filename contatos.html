@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebStock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/contatos.css">
+    <link rel="stylesheet" href="./css/gestor.css">
+</head>
+<body>
+    <section>
+        <ul class="menu-lateral">
+           <!-- 
+             <ul class="cabecalho">
+               <li>
+                   <a href="#" target="_blank">
+                       <img src="./icons/pessoas-branco.png" alt="" srcset="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" target="_blank">
+                        <img src="./icons/engrenagem-branco.png" alt="" srcset="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./index.html" target="_blank">
+                        <img src="./icons/sair-branco.png" alt="" srcset="">
+                    </a>
+                </li>
+            </ul>
+            -->
+            <div class="texto-logo">
+                <!--<img class="logo" src="./img/estoque.png" alt="">-->
+                <p>
+                    Olá! Seja bem vindo ao WEBSTOCK.
+                </p>
+            </div>
+            <a href="./gestor.html">
+                <li>Home</li>
+            </a>
+            <a href="./contatos.html">
+                <li>Contatos</li>
+            </a>
+            <a href="./vendas.html">
+                <li>Vendas</li>
+            </a>
+            <a href="./produtos.html">
+                <li>Produtos</li>
+            </a>
+            <a href="financeiro.html">
+                <li>Financeiro</li>
+            </a>
+            <a href="./financeiro.html">
+                <li>Dashboard</li>
+            </a>
+            <a href="./relatorios.html">
+                <li>Relatorios</li>
+            </a>
+            <a href="./cadastrarFuncionario">
+                <li>Cadastro de Funcionario</li>
+            </a>
+        </ul>
+    </section>
+
+    <section class="secao-trabalho">
+        <div class="campo-busca">
+            <a href="#">
+                <img src="./img/estoque.png" alt="">
+            </a>
+
+            <input type="search" name="pesquisa" id="pesquisa">
+            <button type="submit">
+                
+            </button>
+            <div class="icones">
+
+                <ul class="cabecalho">
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="./icons/pessoas-branco.png" alt="" srcset="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" target="_blank">
+                            <img src="./icons/engrenagem-branco.png" alt="" srcset="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" target="_blank">
+                            <img src="./icons/sair-branco.png" alt="" srcset="">
+                        </a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        <div class="area-trabalho">
+            <div class="info-pagina">
+                <h1>Contatos</h1><!--ADD O DIA E A HORA AOLADO-->
+            </div>
+            <div class="container">
+                <div class="abas">
+                    <div class="botoes">
+                        <a href="#">
+                            <button type="menu">
+                                <p>Clientes</p>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button type="menu">
+                                <p>Fornecedores</p>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <button type="menu">
+                                <p>Transportadoras</p>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="pag-abas">
+                    <div class="botoes">
+                        <a href="#">
+                            <button type="menu">
+                                <img src="./icons/mais.png" alt="">
+                                <p>Novo</p>
+                            </button>
+                        </a>
+                        <a href="#">
+                            <input type="search" name="pesquisa" id="pesquisa">
+                            <button type="submit">
+                               
+                            </button>
+                        </a>
+                    </div>
+                    <div class="formulario">
+                        <form action="https://api.sheetmonkey.io/form/81tm8rHt44YhypQ6sX1CRg" method="POST"><!--action="https://api.sheetmonkey.io/form/81tm8rHt44YhypQ6sX1CRg" method="POST"-->
+                            <label for="form_nome_usuario">
+                                <p>Nome</p>
+                                <input placeholder="Seu nome completo" type="text" name="form_nome_usuario" id="form_nome_usuario">
+                            </label>
+                            <label for="form_telefone_usuario">
+                                <p>Telefone</p>
+                                <input placeholder="(99) 9 9999-9999" type="number" name="form_telefone_usuario" id="form_telefone_usuario">
+                            </label>
+                            <label for="form_cpf_usuario">
+                                <p>Email</p>
+                                <input placeholder="aaaaaa@email" type="email" name="form_email_usuario" id="form_email_usuario">
+                            </label>
+                            <label for="form_cpf_usuario">
+                                <p>CPF</p>
+                                <input placeholder="000.000.000-00" type="number" name="form_cpf_usuario" id="form_cpf_usuario">
+                            </label>
+                            <label for="form_data_nascimento_usuario">
+                                <p> Data de Nascimento</p>
+                                <input type="date" name="form_data_nascimento_usuario" id="form_data_nascimento_usuario">
+                            </label>
+                            <label for="form_sexo_usuario">
+                                <p>Sexo:</p>
+                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> Masculino
+                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> Feminino
+                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> N/D
+                            </label>
+                            <div class="endereco">
+                                <h4>Endereço</h4>
+                            </div>
+                            
+                            <label for="form_logradouro_usuario">
+                                <p>Logradouro</p>
+                                <input placeholder="Logradouro" type="text" name="form_logradouro_usuario" id="form_logradouro_usuario">
+                            </label>
+                            <label for="form_numero_usuario">
+                                <p>Nº</p>
+                                <input placeholder="Nº" type="number" name="form_numero_usuario" id="form_numero_usuario">
+                            </label>
+                            <label for="form_complemento_usuario">
+                                <p>Complemento</p>
+                                <input placeholder="Complemento" type="text" name="form_complemento_usuario" id="form_complemento_usuario">
+                            </label>
+                            <label for="form_estado_usuario">
+                                <p>UF</p>
+                                <select name="form_estado_usuario" id="form_estado_usuario">
+                                    <option value=""></option>
+                                </select>
+                            </label>
+                            <label for="form_cidade_usuario">
+                                <p>Cidade</p>
+                                <select name="form_cidade_usuario" id="form_cidade_usuario">
+                                    <option value=""></option>
+                                </select>
+                            </label>
+                            <button class="salvarForm" type="submit">
+                                Enviar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="./assets/main.js"></script>
+    <script src="./assets/app.js"></script>
+    <script src="./assets/form.js"></script>
+    <script src="./assets/form2.js"></script>
+    <script src="https://unpkg.com/localforage/dist/localforage.js"></script>
+</body>
+</html>

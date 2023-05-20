@@ -1,0 +1,264 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+:root{
+    ---primary-color: #0094ab;
+    ---secondary-color: #184da2;
+    ---third-color: #08609e;
+    ---fourth-color: #b4b4b4;
+    ---fiveth-color: #359c68;
+    ---sixth-color: #18747a;
+    ---cor-objetos: #1a547d;
+    ---cor-branco:#ffff;
+}
+
+
+/*
+    DEPOIS TIRAR OS ICONES DO MENU E COLOCAR NO CAMPO DE BUSCA
+*/
+.secao-trabalho .campo-busca{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    margin: 0 0 0 30px;
+    height: 10vh;
+    width: 80vw;
+    background-color: var(---fourth-color);
+    position: fixed;
+    left: 187px;
+    z-index: -1;
+}
+
+/*
+
+*/
+
+.secao-trabalho .campo-busca a{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.secao-trabalho .campo-busca a img{
+    height: 40px;
+    margin: 5px 250px 5px 5px;
+}
+
+.secao-trabalho .campo-busca input#pesquisa{
+    background-color: #ffffff;
+    border: none;
+    height: 40px;
+    width: 300px;
+    padding: 3px;
+    margin: 0 0 0 250px;
+    border-radius: 3px;
+}
+
+.secao-trabalho .campo-busca button{
+    height: 40px;
+    width: 75px;
+    padding: 10px;
+    margin: 0 90px 0 10px;
+    background-color: #1a547d;
+    background-image: url(../icons/lupa.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 2px;
+
+}
+
+
+.secao-trabalho .campo-busca .icones .cabecalho{
+    height: 40px;
+    width: 260px;
+    margin:0px 0px 0 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-content: center;
+}
+
+.secao-trabalho .campo-busca .icones .cabecalho li{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px;
+    height: 45px;
+    width: 45px;
+
+}
+
+.secao-trabalho .campo-busca .icones .cabecalho li a{
+    height: 40px;
+    width: 50px;
+    padding: 0px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.secao-trabalho .campo-busca .icones .cabecalho li a img{
+    height: 45px;
+    padding: 5px;
+    margin: 20px;
+}
+
+.secao-trabalho .area-trabalho{
+    position: relative;
+}
+.secao-trabalho .area-trabalho .info-pagina{
+    background-color: var(---sixth-color);
+    position: fixed;
+    top: 65px;
+    left: 0px;
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 250px;
+    z-index: -1;
+}
+/*---------------------------------------------------------*/
+.secao-trabalho .area-trabalho .container{
+    border: 1px solid rgb(255, 0, 0);/*TIRAR BORDA*/
+    position: fixed;
+    top: 150px;
+    left: 250px;
+    width: 1000px;
+    height: 430px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    max-height: 900px;
+    z-index: 1;
+}
+/*---------------------------------------------------------*/
+.secao-trabalho .area-trabalho .container .abas{
+    border: 1px solid green;/*TIRAR BORDA*/
+    height: 45px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.secao-trabalho .area-trabalho .container .abas .botoes{
+    display: flex;
+    
+}
+
+.secao-trabalho .area-trabalho .container .abas .botoes a{
+    height: 35px;
+    margin: 0 5px 0 0;
+}
+
+.secao-trabalho .area-trabalho .container .abas .botoes a button{
+    color: var(---cor-branco);
+    padding:0 20px;
+    margin: 0 15px 0 0;
+    width: 100%;
+    height: 35px;
+    
+    background-color: var(---cor-objetos);
+}
+
+
+.secao-trabalho .area-trabalho .container .abas .botoes a button:hover{
+    background-color: var(---sixth-color);
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas{
+    border: 2px solid #2cfff5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #807e7e;
+    
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes{
+    display: flex;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes a button img:first-child{
+    height: 12px;
+    margin: 0 3px 0 0;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes a button:first-child{
+    width: 60px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes a button:nth-child(2){
+    background-color: #1a547d;
+    background-image: url(../icons/lupa.png);
+    margin-left: 10px;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes a:nth-child(2){
+    display: flex;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .botoes a button{
+    display: flex;
+    height: 35px;
+    width: 60px;
+    padding: 10px;
+    margin: 0 30px 0 0;
+    background-color: #1a547d;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 2px;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas a input#pesquisa{
+    background-color: #ffffff;
+    border: none;
+    height: 35px;
+    width: 200px;
+    padding: 3px;
+    margin: 0 0 0 20px;
+    border-radius: 3px;
+}
+
+
+.secao-trabalho .area-trabalho .container .pag-abas .formulario{
+    padding: 10px 30px;
+    
+
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .formulario form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .formulario form label {
+    margin:10px 20px 10px 0;
+}
+
+.secao-trabalho .area-trabalho .container .pag-abas .formulario form .endereco{
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 40px;
+} 

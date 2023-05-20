@@ -1,0 +1,89 @@
+site base para o desenhvolvimento da aplicação web:
+    https://egestor.com.br/recursos/controle-de-estoque-online.php
+
+imagens de base para o projeto:
+    
+---------------------------------------------------------
+Do utilizador
+como armazenar e manipular os dados de um formulario utilizando o localForage em javascript
+
+ChatGPT
+Para armazenar e manipular dados de um formulário utilizando o LocalForage em JavaScript, siga os seguintes passos:
+
+Instale a biblioteca do LocalForage através do npm ou faça o download do arquivo js e inclua-o no seu projeto:
+javascript
+
+
+*********************************
+npm install localforage
+*********************************
+
+
+
+Inicialize o LocalForage no seu script:
+javascript
+
+*********************************
+const localforage = require('localforage');
+localforage.config({
+  driver: localforage.INDEXEDDB,
+  name: 'myApp'
+});
+*********************************
+
+
+Crie um objeto que represente os dados do formulário:
+javascript
+
+*********************************
+const formData = {
+  nome: 'John',
+  sobrenome: 'Doe',
+  email: 'johndoe@example.com'
+};
+*********************************
+
+
+Armazene os dados no LocalForage:
+javascript
+
+*********************************
+localforage.setItem('formData', formData)
+  .then(() => console.log('Dados armazenados com sucesso'))
+  .catch(err => console.error(err));
+*********************************
+
+
+Recupere os dados do LocalForage:
+javascript
+
+*********************************
+localforage.getItem('formData')
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+*********************************
+
+
+Atualize os dados no LocalForage:
+javascript
+
+*********************************
+localforage.setItem('formData', {
+  ...formData,
+  email: 'newemail@example.com'
+})
+  .then(() => console.log('Dados atualizados com sucesso'))
+  .catch(err => console.error(err));
+*********************************
+
+
+Exclua os dados do LocalForage:
+javascript
+
+*********************************
+localforage.removeItem('formData')
+  .then(() => console.log('Dados excluídos com sucesso'))
+  .catch(err => console.error(err));
+*********************************
+
+Dessa forma, você pode armazenar e manipular os dados de um formulário utilizando o LocalForage em JavaScript.
