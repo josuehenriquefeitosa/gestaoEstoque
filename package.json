@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "assets",
   "version": "1.0.0",
   "description": "",
@@ -13,10 +12,5 @@
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.3.1"
-=======
-  "dependencies": {
-    "express": "^4.18.2",
-    "mysql": "^2.18.1"
->>>>>>> 4b8c9a61a190ae583b497e0d7739c8fc1a964722
   }
 }

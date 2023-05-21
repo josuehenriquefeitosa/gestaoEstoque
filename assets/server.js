@@ -57,7 +57,7 @@ async function deleteCustomer(id){
   //-------------------------PRODUTOS----------------------------
 async function insertProduct(product){
   const conn = await connect();
-  const sql = 'INSERT INTO produtos(nome,preco,quantidade) VALUES(?,?,?);';
+  const sql = 'INSERT INTO data_base.produtos(nome,preco,quantidade) VALUES(?,?,?);';
   const values = [product.nome,product.preco,product.quantidade];
   return await conn.query(sql,values);
 }
@@ -65,7 +65,7 @@ async function insertProduct(product){
 async function selectProductName(product) {
   try {
     const conn = await connect();
-    const sql = 'SELECT * FROM produtos WHERE nome=?';
+    const sql = 'SELECT * FROM data_base.produtos WHERE nome=?';
     const values = [product.nome];
     const result = await conn.query(sql, values);
     return result;
