@@ -6,7 +6,7 @@ class Usuario {
     }
 }
   
-class Gerente extends Usuario {
+export class Gerente extends Usuario {
     constructor(nome, email, senha) {
         super(nome, email, senha);
         this.nivel = "gerente";
@@ -21,7 +21,7 @@ class Gerente extends Usuario {
     }
 }
   
-class Vendedor extends Usuario {
+export class Vendedor extends Usuario {
     constructor(nome, email, senha) {
         super(nome, email, senha);
         this.nivel = "vendedor";
@@ -32,7 +32,7 @@ class Vendedor extends Usuario {
     }
 }
 
-class Produto {
+export class Produto {
     constructor(codigo, nome, preco, quantidade) {
         this.codigo = codigo;
         this.nome = nome;
@@ -41,7 +41,7 @@ class Produto {
     }
 }
   
-class Estoque {
+export class Estoque {
     constructor() {
         this.produtos = [];
     }
