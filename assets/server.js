@@ -80,6 +80,9 @@ async function selectProductName(product) {
 
   //-------------------------PRODUTOS----------------------------
 
+
+  
+
 // Rota para buscar um cliente pelo nome
 app.post('/buscarCliente', async (req, res) => {
   const customer = {
@@ -102,7 +105,7 @@ app.post('/buscarCliente', async (req, res) => {
 
 
 
-module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName}
+module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName}
 
 
 /*
