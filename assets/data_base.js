@@ -1,36 +1,49 @@
 
 // Configurações de conexão com o banco de dados
 async function connect(){
-
-    if(global.connection && global.connection.state !== 'disconnected')
-        return global.connection
-
+    if(global.connection && global.connection.state !== 'disconnected'){
+        return global.connection;
+    }
+        
     const mysql = require('mysql2/promise');
     const connection = await mysql.createConnection("mysql://root@localhost:3306/data_base");
-    console.log('CONECTOU NO MYSQL')
-    global.connection = connection
-    return connection
-}
-
+    console.log('CONECTOU NO MYSQL');
+    global.connection = connection;
+    return connection;
+};
 
 
 async function selectCustomers(){
     const conn = await connect();
-    const [rows] = await conn.query('SELECT * FROM CLIENTES;');
-    return rows;
+    const rows = conn.query('SELECT * FROM clientes');
+    return await rows;
 }
 
-
+   
 async function insertCustomer(customer){
     const conn = await connect();
-    const sql = 'INSERT INTO clientes(nome,telefone,email,cpf,dataNascimento,sexo,logradouro,numero,complemento,estado,cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
-    const values = [customer.nome,customer.telefone,customer.email,customer.cpf,customer.dataNascimento,customer.sexo,customer.logradouro,customer.numero,customer.complemento,customer.estado,customer.cidade];
-    await conn.query(sql,values);
-
+    const sql = 'INSERT INTO clientes(nome,telefone,cpf,data_nascimento,sexo,logradouro,numero,complemento,uf,cidade,email) VALUES(?,?,?,?,?,?,?,?,?,?,?);';
+    const values = [customer.nome,customer.telefone,customer.cpf,customer.data_nascimento,customer.sexo,customer.logradouro,customer.numero,customer.complemento,customer.uf,customer.cidade,customer.email];
+    return await conn.query(sql,values);
 }
 
 
-module.exports = {selectCustomers,insertCustomer}
+async function updateCustomer(id, customer){
+    const conn = await connect();
+    const sql = 'UPDATE clientes SET nome=?,telefone=?,cpf=?,data_nascimento=?,sexo=?,logradouro=?,numero=?,complemento=?,uf=?,cidade=?,email=? WHERE id=?';
+    const values = [id, customer.nome,customer.telefone,customer.cpf,customer.data_nascimento,customer.sexo,customer.logradouro,customer.numero,customer.complemento,customer.uf,customer.cidade,customer.email];
+    return await conn.query(sql,values);
+}   
+
+
+async function deleteCustomer(id){
+    const conn = await connect();
+    const sql = 'DELETE FROM clientes WHERE id=?;';
+    return await conn.query(sql,[id]);
+}   
+
+
+module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer}
 
 
 /*
