@@ -57,7 +57,7 @@ async function deleteCustomer(id){
   //-------------------------PRODUTOS----------------------------
 async function insertProduct(product){
   const conn = await connect();
-  const sql = 'INSERT INTO data_base.produtos(nome,preco,quantidade) VALUES(?,?,?);';
+  const sql = 'INSERT INTO produtos(nome,preco,quantidade) VALUES(?,?,?);';
   const values = [product.nome,product.preco,product.quantidade];
   return await conn.query(sql,values);
 }
@@ -75,13 +75,17 @@ async function selectProductName(product) {
   }
 }
 
-
+async function updateCustomer(id, customer){
+  const conn = await connect();
+  const sql = 'UPDATE clientes SET nome=?,telefone=?,cpf=?,data_nascimento=?,sexo=?,logradouro=?,numero=?,complemento=?,uf=?,cidade=?,email=? WHERE id=?';
+  const values = [id, customer.nome,customer.telefone,customer.cpf,customer.data_nascimento,customer.sexo,customer.logradouro,customer.numero,customer.complemento,customer.uf,customer.cidade,customer.email];
+  return await conn.query(sql,values);
 
 
   //-------------------------PRODUTOS----------------------------
 
 
-  
+
 
 // Rota para buscar um cliente pelo nome
 app.post('/buscarCliente', async (req, res) => {
@@ -106,45 +110,3 @@ app.post('/buscarCliente', async (req, res) => {
 
 
 module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName}
-
-
-/*
-    // Conectando ao banco de dados
-    connection.connect((err) => {
-        if (err) {
-            console.error('Erro ao conectar ao banco de dados:', err);
-            return;
-        }
-
-        console.log('Conexão estabelecida com sucesso.');
-
-    // Consulta para criar a tabela 'usuarios'
-        const query = `
-        CREATE TABLE usuarios (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nome VARCHAR(100),
-            telefone VARCHAR(20),
-            cpf VARCHAR(11),
-            data_nascimento DATE,
-            sexo ENUM('Masculino', 'Feminino', 'Outro'),
-            logradouro VARCHAR(100),
-            numero VARCHAR(10),
-            complemento VARCHAR(100),
-            uf VARCHAR(2),
-            cidade VARCHAR(100),
-            email VARCHAR(100)
-        )`;
-
-        // Executar a consulta para criar a tabela
-        connection.query(query, (err, result) => {
-            if (err) {
-                console.error('Erro ao criar a tabela:', err);
-            } else {
-                console.log('Tabela criada com sucesso.');
-            }
-
-            // Fechando a conexão
-            connection.end();
-        });
-    })
-*/
