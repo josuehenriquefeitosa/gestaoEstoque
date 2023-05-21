@@ -62,6 +62,13 @@ async function insertProduct(product){
   return await conn.query(sql,values);
 }
 
+
+async function selectProduct(){
+  const conn = await connect();
+  const rows = conn.query('SELECT * FROM produtos');
+  return await rows;
+}
+
 async function selectProductName(product) {
   try {
     const conn = await connect();
@@ -92,4 +99,4 @@ async function deleteProduct(id){
   //-------------------------PRODUTOS----------------------------
 
 
-module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName,updateProduct,deleteProduct}
+module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName,updateProduct,deleteProduct,selectProduct}
