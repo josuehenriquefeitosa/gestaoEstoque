@@ -1,101 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebStock</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/contatos.css">
     <link rel="stylesheet" href="../css/gestor.css">
 </head>
+
 <body>
     <section>
         <ul class="menu-lateral">
-           <!-- 
-             <ul class="cabecalho">
-               <li>
-                   <a href="#" target="_blank">
-                       <img src="./icons/pessoas-branco.png" alt="" srcset="">
-                    </a>
-                </li>
-                <li>
-                    <a href="#" target="_blank">
-                        <img src="./icons/engrenagem-branco.png" alt="" srcset="">
-                    </a>
-                </li>
-                <li>
-                    <a href="./index.html" target="_blank">
-                        <img src="./icons/sair-branco.png" alt="" srcset="">
-                    </a>
-                </li>
-            </ul>
-            -->
             <div class="texto-logo">
-                <!--<img class="logo" src="./img/estoque.png" alt="">-->
+                <img class="logo" src="../assets/img/estoque.png" alt="">
                 <p>
                     Olá! Seja bem vindo ao WEBSTOCK.
                 </p>
             </div>
-            <a href="./pages/gestor.html">
-                <li>Home</li>
-            </a>
-            <a href="./pages/contatos.html">
-                <li>Contatos</li>
-            </a>
-            <a href="./pages/vendas.html">
-                <li>Vendas</li>
-            </a>
-            <a href="./pages/produtos.html">
-                <li>Produtos</li>
-            </a>
-            <a href="./pages/financeiro.html">
-                <li>Financeiro</li>
-            </a>
-            <a href="./financeiro.html">
-                <li>Dashboard</li>
-            </a>
-            <a href="./pages/relatorios.html">
-                <li>Relatorios</li>
-            </a>
-            <a href="./pages/cadastrarFuncionario.html">
-                <li>Cadastro de Funcionario</li>
-            </a>
+            <a href="./gestor.html">Home</a>
+            <a href="./contatos.html">Contatos</a>
+            <a href="./vendas.html">Vendas</a>
+            <a href="./produtos.html">Produtos</a>
+            <a href="./financeiro.html">Financeiro</a>
+            <a href="./financeiro.html">Dashboard</a>
+            <a href="./relatorios.html">Relatorios</a>
+            <a href="./cadastrarFuncionario.html">Cadastro de Funcionario</a>
         </ul>
     </section>
-
     <section class="secao-trabalho">
         <div class="campo-busca">
             <a href="#">
-                <img src="./img/estoque.png" alt="">
+                <img src="../assets/img/estoque.png" alt="">
             </a>
-
             <input type="search" name="pesquisa">
             <button type="submit">
-                
             </button>
             <div class="icones">
-
                 <ul class="cabecalho">
                     <li>
                         <a href="#" target="_blank">
-                            <img src="./icons/pessoas-branco.png" alt="" srcset="">
+                            <img src="../assets/icons/pessoas-branco.png" alt="" srcset="">
                         </a>
                     </li>
                     <li>
                         <a href="#" target="_blank">
-                            <img src="./icons/engrenagem-branco.png" alt="" srcset="">
+                            <img src="../assets/icons/engrenagem-branco.png" alt="" srcset="">
                         </a>
                     </li>
                     <li>
                         <a href="./index.html" target="_blank">
-                            <img src="./icons/sair-branco.png" alt="" srcset="">
+                            <img src="../assets/icons/sair-branco.png" alt="" srcset="">
                         </a>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
         <div class="area-trabalho">
@@ -126,14 +89,14 @@
                     <div class="botoes">
                         <a href="#">
                             <button id="novo" type="menu">
-                                <img src="./icons/mais.png" alt="">
+                                <img src="../assets/icons/mais.png" alt="">
                                 <p>Novo</p>
                             </button>
                         </a>
                         <form action="#" method="POST">
                             <input id="procurarDados" type="search" name="pesquisa">
                             <button id="exibirDados" type="submit">Exibir</button>
-                          </form>
+                        </form>
                         <!--<a href="#">
                             <input id="procurarDados" type="search" name="pesquisa" >
                         </a>
@@ -142,58 +105,66 @@
                         </button>-->
                     </div>
                     <div class="formulario">
-                        <form ><!--action="https://api.sheetmonkey.io/form/81tm8rHt44YhypQ6sX1CRg" method="POST"-->
+                        <form><!--action="https://api.sheetmonkey.io/form/81tm8rHt44YhypQ6sX1CRg" method="POST"-->
                             <label for="form_nome_usuario">
                                 <p>Nome</p>
-                                <input id="form_nome_usuario" placeholder="Seu nome completo" type="text" name="form_nome_usuario" >
+                                <input id="form_nome_usuario" placeholder="Seu nome completo" type="text"
+                                    name="form_nome_usuario">
                             </label>
                             <label for="form_telefone_usuario">
                                 <p>Telefone</p>
-                                <input id="form_telefone_usuario" placeholder="(99) 9 9999-9999" type="number" name="form_telefone_usuario" >
+                                <input id="form_telefone_usuario" placeholder="(99) 9 9999-9999" type="number"
+                                    name="form_telefone_usuario">
                             </label>
                             <label for="form_cpf_usuario">
                                 <p>Email</p>
-                                <input id="form_email_usuario" placeholder="aaaaaa@email" type="email" name="form_email_usuario" >
+                                <input id="form_email_usuario" placeholder="aaaaaa@email" type="email"
+                                    name="form_email_usuario">
                             </label>
                             <label for="form_cpf_usuario">
                                 <p>CPF</p>
-                                <input id="form_cpf_usuario"placeholder="000.000.000-00" type="number" name="form_cpf_usuario" >
+                                <input id="form_cpf_usuario" placeholder="000.000.000-00" type="number"
+                                    name="form_cpf_usuario">
                             </label>
                             <label for="form_data_nascimento_usuario">
                                 <p> Data de Nascimento</p>
-                                <input id="form_data_nascimento_usuario" type="date" name="form_data_nascimento_usuario" >
+                                <input id="form_data_nascimento_usuario" type="date"
+                                    name="form_data_nascimento_usuario">
                             </label>
                             <label for="form_sexo_usuario">
                                 <p>Sexo:</p>
-                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > Masculino
-                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > Feminino
-                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > N/D
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario"> Masculino
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario"> Feminino
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario"> N/D
                             </label>
                             <div class="endereco">
                                 <h4>Endereço</h4>
                             </div>
-                            
+
                             <label for="form_logradouro_usuario">
                                 <p>Logradouro</p>
-                                <input id="form_logradouro_usuario" placeholder="Logradouro" type="text" name="form_logradouro_usuario" >
+                                <input id="form_logradouro_usuario" placeholder="Logradouro" type="text"
+                                    name="form_logradouro_usuario">
                             </label>
                             <label for="form_numero_usuario">
                                 <p>Nº</p>
-                                <input id="form_numero_usuario" placeholder="Nº" type="number" name="form_numero_usuario" >
+                                <input id="form_numero_usuario" placeholder="Nº" type="number"
+                                    name="form_numero_usuario">
                             </label>
                             <label for="form_complemento_usuario">
                                 <p>Complemento</p>
-                                <input id="form_complemento_usuario" placeholder="Complemento" type="text" name="form_complemento_usuario" >
+                                <input id="form_complemento_usuario" placeholder="Complemento" type="text"
+                                    name="form_complemento_usuario">
                             </label>
                             <label for="form_estado_usuario">
                                 <p>UF</p>
-                                <select id="form_estado_usuario" name="form_estado_usuario" >
+                                <select id="form_estado_usuario" name="form_estado_usuario">
                                     <option value=""></option>
                                 </select>
                             </label>
                             <label for="form_cidade_usuario">
                                 <p>Cidade</p>
-                                <select id="form_cidade_usuario" name="form_cidade_usuario" >
+                                <select id="form_cidade_usuario" name="form_cidade_usuario">
                                     <option value=""></option>
                                 </select>
                             </label>
@@ -209,28 +180,28 @@
 
 
 
-    <script src="./assets/main.js"></script>
-    <script src="./assets/app.js"></script>
-    <script src="./assets/form.js"></script>
-    <script src="../assets/server.js"></script>
-    <script src="../assets/index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Selecionar o botão pelo ID e adicionar um evento de clique
-    $('#exibirDados').click(function() {
-      // Capturar o valor do campo de entrada
-      var customerName = $('#procurarDados').val();
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/app.js"></script>
 
-      // Fazer uma requisição POST ao servidor com os dados do formulário
-      $.post('/buscarCliente', { nome: customerName }, function(data) {
-        // Preencher os campos de input com os dados recuperados
-        $('#form_nome_usuario').val(data.nome);
-        $('#form_email_usuario').val(data.email);
-      });
-    });
-  });
-</script>
+    <script src="../scripts/server.js"></script>
+    <script src="../scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Selecionar o botão pelo ID e adicionar um evento de clique
+            $('#exibirDados').click(function () {
+                // Capturar o valor do campo de entrada
+                var customerName = $('#procurarDados').val();
+
+                // Fazer uma requisição POST ao servidor com os dados do formulário
+                $.post('/buscarCliente', { nome: customerName }, function (data) {
+                    // Preencher os campos de input com os dados recuperados
+                    $('#form_nome_usuario').val(data.nome);
+                    $('#form_email_usuario').val(data.email);
+                });
+            });
+        });
+    </script>
     <!--<script src="https://core.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -244,4 +215,5 @@
     </script>-->
 
 </body>
+
 </html>

@@ -1,8 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "assets",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,10 +11,15 @@
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.3.1"
-=======
-  "dependencies": {
-    "express": "^4.18.2",
-    "mysql": "^2.18.1"
->>>>>>> 4b8c9a61a190ae583b497e0d7739c8fc1a964722
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josuehenriquefeitosa/gestaoEstoque.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/josuehenriquefeitosa/gestaoEstoque/issues"
+  },
+  "homepage": "https://github.com/josuehenriquefeitosa/gestaoEstoque#readme",
+  "description": ""
 }
