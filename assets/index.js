@@ -4,7 +4,7 @@
     console.log('começou!!!');
     console.log('-----------------------------')
     console.log('INSERT INTO CLIENTES');
-    const resultado = await data_base.insertCustomer({nome:`josue`,telefone:`79999999999`,email:`josue@email.com`,cpf:`03076727516`,data_nascimento:`1998-12-05`,sexo:`Masculino`,logradouro:`Av Um,Bairro Anzol`,numero:`1234`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
+    const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
     });
     console.log(resultado);
 
@@ -16,7 +16,7 @@
 
     console.log('-----------------------------')
     console.log('UPDATE CLIENTES');
-    const resultado2 = await data_base.updateCustomer(3,{nome:`josé feitosa`,telefone:`79977777777`,cpf:`04597528545`,data_nascimento:`1998-12-05`,sexo:`Masculino`,logradouro:`17 de março`,numero:`222`,complemento:`apt`,estado:`SE`,cidade:`Aracaju`,email:`jorge@email.com`
+    const resultado2 = await data_base.updateCustomer(3,{nome:``,telefone:``,cpf:``,data_nascimento:``,sexo:``,logradouro:``,numero:``,complemento:``,estado:``,cidade:``,email:``
     });
     console.log(resultado2);
     console.log('-----------------------------')
@@ -24,7 +24,7 @@
 
     console.log('-----------------------------')
     console.log('DELETE FROM CLIENTES');
-    const resultado3 = await data_base.deleteCustomer(33);
+    const resultado3 = await data_base.deleteCustomer();
     console.log(resultado3);
     console.log('-----------------------------')
 })();
