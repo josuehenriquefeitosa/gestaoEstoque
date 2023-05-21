@@ -3,7 +3,7 @@
     const data_base = require('../assets/server.js');
     console.log('começou!!!');
 
-    /*
+    /* // ----------------------------CLIENTES---------------------------------------
     console.log('-----------------------------')
     console.log('INSERT INTO CLIENTES');
     const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
@@ -17,6 +17,7 @@
     console.log(clientes);
     console.log('-----------------------------')
 */
+    console.log('')
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES WHERE nome= ?');
     const clientesNome = await data_base.selectCustomerName({nome:'josue'});
@@ -36,8 +37,32 @@
     const resultado3 = await data_base.deleteCustomer();
     console.log(resultado3);
     console.log('-----------------------------')
-    
+        // ----------------------------CLIENTES---------------------------------------
     */
+
+        // ----------------------------PRODUTOS---------------------------------------
+    console.log('-----------CADASTRO PRODUTOS------------------')
+    console.log('INSERT INTO PRODUTOS');
+    const resultado4 = await data_base.insertProduct({nome:``,preco:``,quantidade:``});
+    console.log(resultado);
+
+
+    console.log('------------MOSTRAR PRODUTOS-----------------')
+    console.log('SELECT * FROM PRODUTOS');
+    const produtos = await data_base.selectProduct();
+    console.log(produtos);
+    console.log('-----------------------------')
+
+
+    console.log('')
+    console.log('----------PESQUISA PRODUTOS NOME-------------------')
+    console.log('SELECT * FROM PRODUTOS WHERE nome= ?');
+    const produtosNome = await data_base.selectProductName({nome:'oleo10w40'});
+    console.log(produtosNome);
+    console.log('-----------------------------')
+
+
+        // ----------------------------PRODUTOS---------------------------------------
 })();
     
 
