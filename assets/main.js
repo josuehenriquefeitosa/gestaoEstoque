@@ -69,6 +69,7 @@ class Estoque {
     }
 }
 
+
 const estoque = new Estoque();
 
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
@@ -82,3 +83,4 @@ gerente.removerProduto("002");
 
 vendedor.realizarVenda("001", 10);
 vendedor.realizarVenda("001", 50);
+
