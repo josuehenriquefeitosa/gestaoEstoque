@@ -53,6 +53,33 @@ async function deleteCustomer(id){
     return await conn.query(sql,[id]);
 }   
 
+
+  //-------------------------PRODUTOS----------------------------
+async function insertProduct(product){
+  const conn = await connect();
+  const sql = 'INSERT INTO data_base.produtos(nome,preco,quantidade) VALUES(?,?,?);';
+  const values = [product.nome,product.preco,product.quantidade];
+  return await conn.query(sql,values);
+}
+
+async function selectCustomerName(customer) {
+  try {
+    const conn = await connect();
+    const sql = 'SELECT * FROM clientes WHERE nome=?';
+    const values = [customer.nome];
+    const result = await conn.query(sql, values);
+    return result;
+  } catch (error) {
+    console.error('Erro ao selecionar o nome do cliente:', error);
+    throw error;
+  }
+}
+
+
+
+
+  //-------------------------PRODUTOS----------------------------
+
 // Rota para buscar um cliente pelo nome
 app.post('/buscarCliente', async (req, res) => {
   const customer = {
