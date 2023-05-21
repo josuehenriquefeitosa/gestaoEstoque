@@ -62,15 +62,15 @@ async function insertProduct(product){
   return await conn.query(sql,values);
 }
 
-async function selectCustomerName(customer) {
+async function selectProductName(product) {
   try {
     const conn = await connect();
-    const sql = 'SELECT * FROM clientes WHERE nome=?';
-    const values = [customer.nome];
+    const sql = 'SELECT * FROM produtos WHERE nome=?';
+    const values = [product.nome];
     const result = await conn.query(sql, values);
     return result;
   } catch (error) {
-    console.error('Erro ao selecionar o nome do cliente:', error);
+    console.error('Erro ao selecionar o nome do produto:', error);
     throw error;
   }
 }
