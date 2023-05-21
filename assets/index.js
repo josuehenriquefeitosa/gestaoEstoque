@@ -62,6 +62,12 @@
     console.log('-----------------------------')
 
 
+    console.log('-----------DELETAR PRODUTOS------------------')
+    console.log('DELETE FROM CLIENTES');
+    const resultado5 = await data_base.deleteProduct();
+    console.log(resultado5);
+    console.log('-----------------------------')
+
         // ----------------------------PRODUTOS---------------------------------------
 })();
     
