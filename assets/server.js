@@ -75,12 +75,20 @@ async function selectProductName(product) {
   }
 }
 
-async function updateCustomer(id, customer){
+async function updateProduct(id, product){
   const conn = await connect();
-  const sql = 'UPDATE clientes SET nome=?,telefone=?,cpf=?,data_nascimento=?,sexo=?,logradouro=?,numero=?,complemento=?,uf=?,cidade=?,email=? WHERE id=?';
-  const values = [id, customer.nome,customer.telefone,customer.cpf,customer.data_nascimento,customer.sexo,customer.logradouro,customer.numero,customer.complemento,customer.uf,customer.cidade,customer.email];
+  const sql = 'UPDATE clientes SET nome=?,preco=?,quantidade=? WHERE id=?';
+  const values = [id, product.nome,product.preco,product.quantidade];
   return await conn.query(sql,values);
 
+}
+
+
+async function deleteProduct(id){
+  const conn = await connect();
+  const sql = 'DELETE FROM produtos WHERE id=?;';
+  return await conn.query(sql,[id]);
+}  
 
   //-------------------------PRODUTOS----------------------------
 
