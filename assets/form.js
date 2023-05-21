@@ -18,6 +18,13 @@ const UF = document.getElementById('form_estado_usuario')
 const cidade = document.getElementById('form_cidade_usuario')
 const email = document.getElementById('form_email_usuario')
 
+//BOTOES ACIMA DO FORMULARIO
+const botaoPesquisar = document.getElementById('procurarDados')// input pesquisa ao lado do btn lupa
+const botaoNovo = document.getElementById('novo')
+const botaoExibirLupa = document.getElementById('exibirDados')
+
+//BOTAO  DO FORMULARIO
+const botaoSalvar = document.getElementById('salvarForm') // botao submit formulario
 
 const formData = {
     nome: `${nome}`,

@@ -39,28 +39,28 @@
                     Olá! Seja bem vindo ao WEBSTOCK.
                 </p>
             </div>
-            <a href="./gestor.html">
+            <a href="./pages/gestor.html">
                 <li>Home</li>
             </a>
-            <a href="./contatos.html">
+            <a href="./pages/contatos.html">
                 <li>Contatos</li>
             </a>
-            <a href="./vendas.html">
+            <a href="./pages/vendas.html">
                 <li>Vendas</li>
             </a>
-            <a href="./produtos.html">
+            <a href="./pages/produtos.html">
                 <li>Produtos</li>
             </a>
-            <a href="financeiro.html">
+            <a href="./pages/financeiro.html">
                 <li>Financeiro</li>
             </a>
             <a href="./financeiro.html">
                 <li>Dashboard</li>
             </a>
-            <a href="./relatorios.html">
+            <a href="./pages/relatorios.html">
                 <li>Relatorios</li>
             </a>
-            <a href="./cadastrarFuncionario">
+            <a href="./pages/cadastrarFuncionario.html">
                 <li>Cadastro de Funcionario</li>
             </a>
         </ul>
@@ -72,7 +72,7 @@
                 <img src="./img/estoque.png" alt="">
             </a>
 
-            <input type="search" name="pesquisa" id="pesquisa">
+            <input type="search" name="pesquisa">
             <button type="submit">
                 
             </button>
@@ -125,45 +125,49 @@
                 <div class="pag-abas">
                     <div class="botoes">
                         <a href="#">
-                            <button type="menu">
+                            <button id="novo" type="menu">
                                 <img src="./icons/mais.png" alt="">
                                 <p>Novo</p>
                             </button>
                         </a>
-                        <a href="#">
-                            <input type="search" name="pesquisa" id="pesquisa">
-                            <button type="submit">
-                               
-                            </button>
+                        <form action="#" method="POST">
+                            <input id="procurarDados" type="search" name="pesquisa">
+                            <button id="exibirDados" type="submit">Exibir</button>
+                          </form>
+                        <!--<a href="#">
+                            <input id="procurarDados" type="search" name="pesquisa" >
                         </a>
+                        <button id="exibirDados" type="submit">
+                           
+                        </button>-->
                     </div>
                     <div class="formulario">
                         <form ><!--action="https://api.sheetmonkey.io/form/81tm8rHt44YhypQ6sX1CRg" method="POST"-->
                             <label for="form_nome_usuario">
                                 <p>Nome</p>
-                                <input placeholder="Seu nome completo" type="text" name="form_nome_usuario" id="form_nome_usuario">
+                                <input id="form_nome_usuario" placeholder="Seu nome completo" type="text" name="form_nome_usuario" >
                             </label>
                             <label for="form_telefone_usuario">
                                 <p>Telefone</p>
-                                <input placeholder="(99) 9 9999-9999" type="number" name="form_telefone_usuario" id="form_telefone_usuario">
+                                <input id="form_telefone_usuario" placeholder="(99) 9 9999-9999" type="number" name="form_telefone_usuario" >
                             </label>
                             <label for="form_cpf_usuario">
                                 <p>Email</p>
-                                <input placeholder="aaaaaa@email" type="email" name="form_email_usuario" id="form_email_usuario">
+                                <input id="form_email_usuario" placeholder="aaaaaa@email" type="email" name="form_email_usuario" >
                             </label>
                             <label for="form_cpf_usuario">
                                 <p>CPF</p>
-                                <input placeholder="000.000.000-00" type="number" name="form_cpf_usuario" id="form_cpf_usuario">
+                                <input id="form_cpf_usuario"placeholder="000.000.000-00" type="number" name="form_cpf_usuario" >
                             </label>
                             <label for="form_data_nascimento_usuario">
                                 <p> Data de Nascimento</p>
-                                <input type="date" name="form_data_nascimento_usuario" id="form_data_nascimento_usuario">
+                                <input id="form_data_nascimento_usuario" type="date" name="form_data_nascimento_usuario" >
                             </label>
                             <label for="form_sexo_usuario">
                                 <p>Sexo:</p>
-                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> Masculino
-                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> Feminino
-                                <input type="radio" name="form_sexo_usuario" id="form_sexo_usuario"> N/D
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > Masculino
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > Feminino
+                                <input id="form_sexo_usuario" type="radio" name="form_sexo_usuario" > N/D
                             </label>
                             <div class="endereco">
                                 <h4>Endereço</h4>
@@ -171,29 +175,29 @@
                             
                             <label for="form_logradouro_usuario">
                                 <p>Logradouro</p>
-                                <input placeholder="Logradouro" type="text" name="form_logradouro_usuario" id="form_logradouro_usuario">
+                                <input id="form_logradouro_usuario" placeholder="Logradouro" type="text" name="form_logradouro_usuario" >
                             </label>
                             <label for="form_numero_usuario">
                                 <p>Nº</p>
-                                <input placeholder="Nº" type="number" name="form_numero_usuario" id="form_numero_usuario">
+                                <input id="form_numero_usuario" placeholder="Nº" type="number" name="form_numero_usuario" >
                             </label>
                             <label for="form_complemento_usuario">
                                 <p>Complemento</p>
-                                <input placeholder="Complemento" type="text" name="form_complemento_usuario" id="form_complemento_usuario">
+                                <input id="form_complemento_usuario" placeholder="Complemento" type="text" name="form_complemento_usuario" >
                             </label>
                             <label for="form_estado_usuario">
                                 <p>UF</p>
-                                <select name="form_estado_usuario" id="form_estado_usuario">
+                                <select id="form_estado_usuario" name="form_estado_usuario" >
                                     <option value=""></option>
                                 </select>
                             </label>
                             <label for="form_cidade_usuario">
                                 <p>Cidade</p>
-                                <select name="form_cidade_usuario" id="form_cidade_usuario">
+                                <select id="form_cidade_usuario" name="form_cidade_usuario" >
                                     <option value=""></option>
                                 </select>
                             </label>
-                            <button class="salvarForm" type="submit">
+                            <button id="salvarForm" class="salvarForm" type="submit">
                                 Enviar
                             </button>
                         </form>
@@ -208,7 +212,36 @@
     <script src="./assets/main.js"></script>
     <script src="./assets/app.js"></script>
     <script src="./assets/form.js"></script>
-    <script src="./assets/form2.js"></script>
-    <script src="https://unpkg.com/localforage/dist/localforage.js"></script>
+    <script src="../assets/server.js"></script>
+    <script src="../assets/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Selecionar o botão pelo ID e adicionar um evento de clique
+    $('#exibirDados').click(function() {
+      // Capturar o valor do campo de entrada
+      var customerName = $('#procurarDados').val();
+
+      // Fazer uma requisição POST ao servidor com os dados do formulário
+      $.post('/buscarCliente', { nome: customerName }, function(data) {
+        // Preencher os campos de input com os dados recuperados
+        $('#form_nome_usuario').val(data.nome);
+        $('#form_email_usuario').val(data.email);
+      });
+    });
+  });
+</script>
+    <!--<script src="https://core.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#exibirDados').click(function(){
+                var id = $('#procurarDados').val();
+                $.get('/dados/'+id,function(data){
+                    console.log(data);
+                })
+            })
+        })
+    </script>-->
+
 </body>
 </html>
