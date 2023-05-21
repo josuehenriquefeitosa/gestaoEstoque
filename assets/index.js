@@ -2,8 +2,44 @@ const main = require('../assets/main.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const app = express();
+const port = 3000;
+
+// Configure o body-parser para lidar com solicitações JSON
+app.use(bodyParser.json());
+
+// Crie uma rota GET para exibir os clientes
+app.get('/clientes', async (req, res) => {
+    const query = 'SELECT * FROM CLIENTES';
+    connection.query(query, (err, results) => {
+        if (err) {
+        console.error('Erro ao executar a consulta:', err);
+        res.status(500).json({ error: 'Erro ao obter os clientes' });
+      } else {
+          res.json(results);
+      }
+    });
+  });
 
 
+  // Crie uma rota GET para exibir os produtos
+app.get('/produtos', async (req, res) => {
+    const query = 'SELECT * FROM PRODUTOS';
+    connection.query(query, (err, results) => {
+      if (err) {
+        console.error('Erro ao executar a consulta:', err);
+        res.status(500).json({ error: 'Erro ao obter os produtos' });
+      } else {
+        res.json(results);
+      }
+    });
+  });
+
+// Inicialize o servidor
+app.listen(port, () => {
+    console.log(`Servidor em execução na porta ${port}`);
+  });
+  
 (async () => {
     const data_base = require('../assets/server.js');
     
@@ -88,7 +124,3 @@ const bodyParser = require('body-parser');
 
         // ----------------------------PRODUTOS---------------------------------------
 })();
-    
-
-
-
