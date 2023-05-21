@@ -91,7 +91,7 @@ async function deleteProduct(id){
 }  
 
 
-app.post('/buscarProdutos', async (req, res) => {
+  /*app.post('/buscarProdutos', async (req, res) => {
   const product = {
     nome: req.body.nome
   };
@@ -108,14 +108,15 @@ app.post('/buscarProdutos', async (req, res) => {
     console.error('Erro ao buscar produto:', error);
     res.status(500).send('Erro ao buscar produto');
   }
-});
+  
+});*/
   //-------------------------PRODUTOS----------------------------
 
 
 
-
-// Rota para buscar um cliente pelo nome
-app.post('/buscarCliente', async (req, res) => {
+  /*
+    // Rota para buscar um cliente pelo nome
+    app.post('/buscarCliente', async (req, res) => {
   const customer = {
     nome: req.body.nome
   };
@@ -132,7 +133,7 @@ app.post('/buscarCliente', async (req, res) => {
     console.error('Erro ao buscar cliente:', error);
     res.status(500).send('Erro ao buscar cliente.');
   }
-});
+});*/
 
 
 
