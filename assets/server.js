@@ -90,6 +90,25 @@ async function deleteProduct(id){
   return await conn.query(sql,[id]);
 }  
 
+
+app.post('/buscarProdutos', async (req, res) => {
+  const product = {
+    nome: req.body.nome
+  };
+
+  try {
+    const result = await selectProductName(product);
+    if (result.length > 0) {
+      const produtoEncontrado = result[0];
+      res.json(produtoEncontrado);
+    } else {
+      res.json({});
+    }
+  } catch (error) {
+    console.error('Erro ao buscar produto:', error);
+    res.status(500).send('Erro ao buscar produto');
+  }
+});
   //-------------------------PRODUTOS----------------------------
 
 
@@ -117,4 +136,4 @@ app.post('/buscarCliente', async (req, res) => {
 
 
 
-module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName}
+module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName,updateProduct,deleteProduct}
