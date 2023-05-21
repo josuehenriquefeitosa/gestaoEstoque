@@ -44,7 +44,7 @@
     console.log('-----------CADASTRO PRODUTOS------------------')
     console.log('INSERT INTO PRODUTOS');
     const resultado4 = await data_base.insertProduct({nome:`valvulaEscape`,preco:`10`,quantidade:`2`});
-    console.log(resultado);
+    console.log(resultado4);
 
 
     console.log('------------MOSTRAR PRODUTOS-----------------')
