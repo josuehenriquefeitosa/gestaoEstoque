@@ -1,6 +1,6 @@
 
 (async () => {
-    const data_base = require('../assets/server.js');
+    const data_base = require('./server.js');
     console.log('começou!!!');
 
     /*
