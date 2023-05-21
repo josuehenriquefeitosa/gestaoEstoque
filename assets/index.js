@@ -21,7 +21,7 @@
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES WHERE nome= ?');
     const clientesNome = await data_base.selectCustomerName({nome:'josue'});
-    console.log(clientesNome);
+    console.log(clientesNome[0]);
     console.log('-----------------------------')
 /*
     console.log('-----------------------------')
@@ -44,13 +44,13 @@
     console.log('-----------CADASTRO PRODUTOS------------------')
     console.log('INSERT INTO PRODUTOS');
     const resultado4 = await data_base.insertProduct({nome:`valvulaEscape`,preco:`10`,quantidade:`2`});
-    console.log(resultado4);
+    console.log(resultado4[0]);
 
 
     console.log('------------MOSTRAR PRODUTOS-----------------')
     console.log('SELECT * FROM PRODUTOS');
     const produtos = await data_base.selectProduct();
-    console.log(produtos);
+    console.log(produtos[0]);
     console.log('-----------------------------')
 
 
@@ -58,14 +58,14 @@
     console.log('----------PESQUISA PRODUTOS NOME-------------------')
     console.log('SELECT * FROM PRODUTOS WHERE nome= ?');
     const produtosNome = await data_base.selectProductName({nome:'oleo10w40'});
-    console.log(produtosNome);
+    console.log(produtosNome[0]);
     console.log('-----------------------------')
 
 
     console.log('-----------DELETAR PRODUTOS------------------')
     console.log('DELETE FROM PRODUTOS');
     const resultado5 = await data_base.deleteProduct();
-    console.log(resultado5);
+    console.log(resultado5[0]);
     console.log('-----------------------------')
 
         // ----------------------------PRODUTOS---------------------------------------
