@@ -63,7 +63,7 @@
 
 
     console.log('-----------DELETAR PRODUTOS------------------')
-    console.log('DELETE FROM CLIENTES');
+    console.log('DELETE FROM PRODUTOS');
     const resultado5 = await data_base.deleteProduct();
     console.log(resultado5);
     console.log('-----------------------------')
