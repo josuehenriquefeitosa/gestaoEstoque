@@ -1,3 +1,7 @@
+const index = require('./index')
+
+
+
 class Usuario {
     constructor(nome, email, senha) {
       this.nome = nome;
