@@ -40,6 +40,9 @@ app.listen(port, () => {
     console.log(`Servidor em execução na porta ${port}`);
   });
   
+
+  
+//-------------------------CONEXAO MYSQL--------------------------
 (async () => {
     const data_base = require('../assets/server.js');
     
