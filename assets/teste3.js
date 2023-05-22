@@ -1,4 +1,4 @@
-const main = require('../assets/main.js')
+//----------------CONEXAO BANCO--------------------
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -10,41 +10,41 @@ app.use(bodyParser.json());
 
 // Crie uma rota GET para exibir os clientes
 app.get('/clientes', async (req, res) => {
-    const query = 'SELECT * FROM CLIENTES';
-    connection.query(query, (err, results) => {
-        if (err) {
-        console.error('Erro ao executar a consulta:', err);
-        res.status(500).json({ error: 'Erro ao obter os clientes' });
-      } else {
-          res.json(results);
-      }
-    });
+  const query = 'SELECT * FROM CLIENTES';
+  connection.query(query, (err, results) => {
+      if (err) {
+      console.error('Erro ao executar a consulta:', err);
+      res.status(500).json({ error: 'Erro ao obter os clientes' });
+    } else {
+        res.json(results);
+    }
+  });
 });
 
 
-  // Crie uma rota GET para exibir os produtos
+// Crie uma rota GET para exibir os produtos
 app.get('/produtos', async (req, res) => {
-    const query = 'SELECT * FROM PRODUTOS';
-    connection.query(query, (err, results) => {
-      if (err) {
-        console.error('Erro ao executar a consulta:', err);
-        res.status(500).json({ error: 'Erro ao obter os produtos' });
-      } else {
-        res.json(results);
-      }
-    });
+  const query = 'SELECT * FROM PRODUTOS';
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Erro ao executar a consulta:', err);
+      res.status(500).json({ error: 'Erro ao obter os produtos' });
+    } else {
+      res.json(results);
+    }
   });
+});
 
 // Inicialize o servidor
 app.listen(port, () => {
-    console.log(`Servidor em execução na porta ${port}`);
-  });
-  
+  console.log(`Servidor em execução na porta ${port}`);
+});
+
 
 
 //-------------------------CONEXAO MYSQL--------------------------
 (async () => {
-    const data_base = require('../assets/server.js');
+    const data_base = require('./server.js');
     
     console.log('começou!!!');
 
@@ -54,7 +54,7 @@ app.listen(port, () => {
     const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
     });
     console.log(resultado[0]);
-*/
+    */
 
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES');
@@ -70,7 +70,7 @@ app.listen(port, () => {
     console.log(clientesNome[0]);
     console.log('-----------------------------')
     console.log()
-/*
+    /*
     console.log()
     console.log('-----------------------------')
     console.log('UPDATE CLIENTES');
@@ -125,5 +125,100 @@ app.listen(port, () => {
     console.log(resultado5[0]);
     console.log('-----------------------------')
 
-        // ----------------------------PRODUTOS---------------------------------------
+      // ----------------------------PRODUTOS---------------------------------------
 })();
+
+
+
+
+class Usuario {
+    constructor(nome, email, senha) {
+      this.nome = nome;  
+      this.email = email;
+      this.senha = senha;
+    }  
+  }  
+  
+class Gerente extends Usuario {
+    constructor(nome, email, senha) {
+      super(nome, email, senha);  
+      this.nivel = "gerente";
+    }  
+  
+    async cadastrarProduto(produto) {
+        await insertProduct(produto);
+    }  
+  
+    async removerProduto(id) {
+        await deleteProduct(id);
+    }  
+  
+    async realizarVenda(id, quantidade) {
+        const produto = await selectProductById(id);
+        if (produto) {
+            if (produto.quantidade >= quantidade) {
+            produto.quantidade -= quantidade;  
+            console.log(`Venda realizada: ${quantidade} unidades do produto ${produto.nome}`);
+            await updateProduct(id, produto);
+            } else {
+            console.log(`Não há estoque suficiente para vender ${quantidade} unidades do produto ${produto.nome}`);  
+            }  
+        } else {
+            console.log(`Produto não encontrado com o ID ${id}`);  
+        }  
+        }  
+    }    
+  
+class Produto {
+    constructor(nome, preco, quantidade) {
+      this.nome = nome;  
+      this.preco = preco;
+      this.quantidade = quantidade;
+    }  
+}    
+  
+class Estoque {
+    constructor() {
+      this.produtos = [];  
+    }  
+  
+    adicionarProduto(produto) {
+      this.produtos.push(produto);  
+    }  
+  
+    removerProduto(id) {
+      this.produtos = this.produtos.filter((produto) => produto.id !== id);  
+    }  
+  
+    venderProduto(id, quantidade) {
+      const produto = this.produtos.find((produto) => produto.id === id);  
+      if (produto) {
+        if (produto.quantidade >= quantidade) {
+          produto.quantidade -= quantidade;  
+          console.log(`Venda realizada: ${quantidade} unidades do produto ${produto.nome}`);
+        } else {
+          console.log(`Não há estoque suficiente para vender ${quantidade} unidades do produto ${produto.nome}`);  
+        }  
+      } else {
+        console.log(`Produto não encontrado com o ID ${id}`);  
+      }  
+    }  
+}    
+  
+const estoque = new Estoque();
+  
+const gerente = new Gerente("João", "joao@mail.com", "senha123");
+  
+//estoque.adicionarProduto(new Produto("bloco", 29.90, 50));
+//estoque.adicionarProduto(new Produto("Comando", 222.90, 880));
+gerente.cadastrarProduto(new Produto("Comando", 222.90, 880));
+gerente.removerProduto();
+
+
+
+
+  
+
+
+
+
