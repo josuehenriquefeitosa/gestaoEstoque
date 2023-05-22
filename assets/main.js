@@ -19,18 +19,12 @@ class Gerente extends Usuario {
     removerProduto(codigo) {
         estoque.removerProduto(codigo);
     }
-}
-  
-class Vendedor extends Usuario {
-    constructor(nome, email, senha) {
-        super(nome, email, senha);
-        this.nivel = "vendedor";
-    }
 
     realizarVenda(codigo, quantidade) {
         estoque.venderProduto(codigo, quantidade);
     }
 }
+    
 
 class Produto {
     constructor(codigo, nome, preco, quantidade) {
