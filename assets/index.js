@@ -1,4 +1,4 @@
-//const main = require('../assets/main.js')
+const main = require('../assets/main.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -44,7 +44,7 @@ app.listen(port, () => {
 
 //-------------------------CONEXAO MYSQL--------------------------
 (async () => {
-    const data_base = require('../assets/server.js');
+    const data_base = require('../assets/server.js').default;
     
     console.log('começou!!!');
 
@@ -54,7 +54,7 @@ app.listen(port, () => {
     const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
     });
     console.log(resultado[0]);
-*/
+    */
 
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES');
@@ -70,7 +70,7 @@ app.listen(port, () => {
     console.log(clientesNome[0]);
     console.log('-----------------------------')
     console.log()
-/*
+    /*
     console.log()
     console.log('-----------------------------')
     console.log('UPDATE CLIENTES');

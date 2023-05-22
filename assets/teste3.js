@@ -1,4 +1,4 @@
-
+//const main = require('../assets/main.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -10,52 +10,42 @@ app.use(bodyParser.json());
 
 // Crie uma rota GET para exibir os clientes
 app.get('/clientes', async (req, res) => {
-  const query = 'SELECT * FROM CLIENTES';
-  connection.query(query, (err, results) => {
-      if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao obter os clientes' });
-    } else {
-        res.json(results);
-    }
-  });
+    const query = 'SELECT * FROM CLIENTES';
+    connection.query(query, (err, results) => {
+        if (err) {
+        console.error('Erro ao executar a consulta:', err);
+        res.status(500).json({ error: 'Erro ao obter os clientes' });
+      } else {
+          res.json(results);
+      }
+    });
 });
 
 
-// Crie uma rota GET para exibir os produtos
+  // Crie uma rota GET para exibir os produtos
 app.get('/produtos', async (req, res) => {
-  const query = 'SELECT * FROM PRODUTOS';
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao obter os produtos' });
-    } else {
-      res.json(results);
-    }
+    const query = 'SELECT * FROM PRODUTOS';
+    connection.query(query, (err, results) => {
+      if (err) {
+        console.error('Erro ao executar a consulta:', err);
+        res.status(500).json({ error: 'Erro ao obter os produtos' });
+      } else {
+        res.json(results);
+      }
+    });
   });
-});
 
 // Inicialize o servidor
 app.listen(port, () => {
-  console.log(`Servidor em execução na porta ${port}`);
-});
-
+    console.log(`Servidor em execução na porta ${port}`);
+  });
+  
 
 
 //-------------------------CONEXAO MYSQL--------------------------
 (async () => {
-    async function connect(){
-        if(global.connection && global.connection.state !== 'disconnected'){
-            return global.connection;
-        }
-            
-        const mysql = require('mysql2/promise');
-        const connection = await mysql.createConnection("mysql://root@localhost:3306/data_base");
-        console.log('CONECTOU NO MYSQL');
-        global.connection = connection;
-        return connection;
-    };
-
+    const data_base = require('../assets/server.js').default;
+    
     console.log('começou!!!');
 
     /* // ----------------------------CLIENTES---------------------------------------
@@ -64,7 +54,7 @@ app.listen(port, () => {
     const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
     });
     console.log(resultado[0]);
-    */
+*/
 
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES');
@@ -80,7 +70,7 @@ app.listen(port, () => {
     console.log(clientesNome[0]);
     console.log('-----------------------------')
     console.log()
-    /*
+/*
     console.log()
     console.log('-----------------------------')
     console.log('UPDATE CLIENTES');
@@ -101,55 +91,6 @@ app.listen(port, () => {
 
         // ----------------------------PRODUTOS---------------------------------------
         /*
-      //-------------------------PRODUTOS----------------------------
-    async function insertProduct(product){
-        const conn = await connect();
-        const sql = 'INSERT INTO produtos(nome,preco,quantidade) VALUES(?,?,?);';
-        const values = [product.nome,product.preco,product.quantidade];
-        return await conn.query(sql,values);
-    }
-
-
-    async function selectProduct(){
-        const conn = await connect();
-        const rows = conn.query('SELECT * FROM produtos');
-        return await rows;
-    }
-
-    async function selectProductName(product) {
-        try {
-            const conn = await connect();
-            const sql = 'SELECT * FROM produtos WHERE nome=?';
-            const values = [product.nome];
-            const result = await conn.query(sql, values);
-            return result;
-        } catch (error) {
-            console.error('Erro ao selecionar o nome do produto:', error);
-            throw error;
-        }
-    }
-
-    async function updateProduct(id, product){
-        const conn = await connect();
-        const sql = 'UPDATE clientes SET nome=?,preco=?,quantidade=? WHERE id=?';
-        const values = [id, product.nome,product.preco,product.quantidade];
-        return await conn.query(sql,values);
-
-    }
-
-
-    async function deleteProduct(id){
-        const conn = await connect();
-        const sql = 'DELETE FROM produtos WHERE id=?;';
-        return await conn.query(sql,[id]);
-    }
-    //-------------------------PRODUTOS----------------------------
-
-
-    module.exports = {selectCustomers,insertCustomer,updateCustomer,deleteCustomer,selectCustomerName,insertProduct,selectProductName,updateProduct,deleteProduct,selectProduct}
-
-
-
     console.log()
     console.log('-----------CADASTRO PRODUTOS------------------')
     console.log('INSERT INTO PRODUTOS');
@@ -184,7 +125,7 @@ app.listen(port, () => {
     console.log(resultado5[0]);
     console.log('-----------------------------')
 
-      // ----------------------------PRODUTOS---------------------------------------
+        // ----------------------------PRODUTOS---------------------------------------
 })();
 
 
@@ -278,8 +219,8 @@ const estoque = new Estoque();
   
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
   
-//estoque.adicionarProduto(new Produto("bloco", 29.90, 50));
-//estoque.adicionarProduto(new Produto("Comando", 222.90, 880));
+estoque.adicionarProduto(new Produto("bloco", 29.90, 50));
+estoque.adicionarProduto(new Produto("Comando", 222.90, 880));
 gerente.cadastrarProduto(new Produto("Comando", 222.90, 880));
 gerente.removerProduto();
 

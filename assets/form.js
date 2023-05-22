@@ -1,11 +1,3 @@
-const localforage = require('localforage')
-localforage.config({
-  driver: localforage.INDEXEDDB,
-  name: 'myApp'
-})
-
-
-
 const nome = document.getElementById('form_nome_usuario')
 const telefone = document.getElementById('form_telefone_usuario')
 const cpf = document.getElementById('form_cpf_usuario')
@@ -27,56 +19,18 @@ const botaoExibirLupa = document.getElementById('exibirDados')
 const botaoSalvar = document.getElementById('salvarForm') // botao submit formulario
 
 const formData = {
-    nome: `${nome}`,
-    telefone:`${telefone}`,
-    email: `${email}`,
-    cpf: `${cpf}`,
-    dataNascimento: `${dataNascimento}`,
-    sexo: `${sexo}`,
-    logradouro: `${logradouro}`,
-    numero: `${numero}`,
-    complemento: `${complemento}`,
-    estado: `${UF}`,
-    cidade: `${cidade}`
-  }
-
-
-localforage.setItem('formData', formData)
-  .then(() => console.log('Dados armazenados com sucesso'))
-  .catch(err => console.error(err));
-
-
-
-localforage.getItem('formData')
-.then(data => console.log(data))
-.catch(err => console.error(err));
-
-
-
-localforage.setItem('formData',{
-    ...formData,
-    nome: `${nome}`,
-    telefone:`${telefone}`,
-    email: `${email}`,
-    cpf: `${cpf}`,
-    dataNascimento: `${dataNascimento}`,
-    sexo: `${sexo}`,
-    logradouro: `${logradouro}`,
-    numero: `${numero}`,
-    complemento: `${complemento}`,
-    estado: `${UF}`,
-    cidade: `${cidade}`
-  })
-    .then(() => console.log('Dados atualizados com sucesso'))
-    .catch(err => console.error(err));
-
-
-
-localforage.removeItem('formData')
-.then(() => console.log('Dados excluídos com sucesso'))
-.catch(err => console.error(err));
-
-
+  nome: `${nome}`,
+  telefone:`${telefone}`,
+  email: `${email}`,
+  cpf: `${cpf}`,
+  dataNascimento: `${dataNascimento}`,
+  sexo: `${sexo}`,
+  logradouro: `${logradouro}`,
+  numero: `${numero}`,
+  complemento: `${complemento}`,
+  estado: `${UF}`,
+  cidade: `${cidade}`
+}
 
 
 
