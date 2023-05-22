@@ -23,7 +23,7 @@ app.get('/clientes', async (req, res) => {
 
 
   // Crie uma rota GET para exibir os produtos
-app.get('/produtos', async (req, res) => {
+app.get('/produtos', async function (req, res) {
     const query = 'SELECT * FROM PRODUTOS';
     connection.query(query, (err, results) => {
       if (err) {
@@ -48,13 +48,13 @@ app.listen(port, () => {
     
     console.log('começou!!!');
 
-    /* // ----------------------------CLIENTES---------------------------------------
-    console.log('-----------------------------')
-    console.log('INSERT INTO CLIENTES');
-    const resultado = await data_base.insertCustomer({nome:`fernando`,telefone:`798888888888`,email:`fernando@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
-    });
-    console.log(resultado[0]);
-*/
+    // ----------------------------CLIENTES---------------------------------------
+  console.log('-----------------------------')
+  console.log('INSERT INTO CLIENTES');
+  const inseriClientes = await data_base.insertCustomer({nome:`Godofredo`,telefone:`79944444444`,email:`Godofredo@email.com`,cpf:`05653524581`,data_nascimento:`1974-05-12`,sexo:`Masculino`,logradouro:`Av augusto franco`,numero:`2787`,complemento:`casa`,estado:`SE`,cidade:`Aracaju`
+  });
+  console.log(inseriClientes[0]);
+
 
     console.log('-----------------------------')
     console.log('SELECT * FROM CLIENTES');
@@ -70,7 +70,7 @@ app.listen(port, () => {
     console.log(clientesNome[0]);
     console.log('-----------------------------')
     console.log()
-/*
+
     console.log()
     console.log('-----------------------------')
     console.log('UPDATE CLIENTES');
@@ -87,10 +87,10 @@ app.listen(port, () => {
     console.log('-----------------------------')
     console.log()
         // ----------------------------CLIENTES---------------------------------------
-    */
+    
 
         // ----------------------------PRODUTOS---------------------------------------
-        /*
+      
     console.log()
     console.log('-----------CADASTRO PRODUTOS------------------')
     console.log('INSERT INTO PRODUTOS');
@@ -98,7 +98,7 @@ app.listen(port, () => {
     console.log(resultado4[0]);
     console.log()
     console.log()
-    */
+    
 
     console.log('------------MOSTRAR PRODUTOS-----------------')
     console.log('SELECT * FROM PRODUTOS');
@@ -219,8 +219,8 @@ const estoque = new Estoque();
   
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
   
-estoque.adicionarProduto(new Produto("bloco", 29.90, 50));
-estoque.adicionarProduto(new Produto("Comando", 222.90, 880));
+//estoque.adicionarProduto(new Produto("bloco", 29.90, 50));
+//estoque.adicionarProduto(new Produto("Comando", 222.90, 880));
 gerente.cadastrarProduto(new Produto("Comando", 222.90, 880));
 gerente.removerProduto();
 

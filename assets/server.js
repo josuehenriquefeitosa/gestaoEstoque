@@ -14,7 +14,7 @@ async function connect(){
 
 async function selectCustomers(){
     const conn = await connect();
-    const rows = conn.query('SELECT * FROM clientes');
+    const rows = conn.query('SELECT * FROM data_base.clientes;');
     return await rows;
 }
 
@@ -65,8 +65,8 @@ async function insertProduct(product){
 
 async function selectProduct() {
   const conn = await connect();
-  const rows = conn.query('SELECT * FROM data_base.produtos');
-  return await rows;
+  const sql = 'SELECT * FROM data_base.produtos;'
+  return await conn.query(sql);
 }
 
 async function selectProductName(product) {
@@ -75,7 +75,7 @@ async function selectProductName(product) {
     const sql = 'SELECT * FROM produtos WHERE nome=?';
     const values = [product.nome];
     const result = await conn.query(sql, values);
-    return result;
+    return result
   } catch (error) {
     console.error('Erro ao selecionar o nome do produto:', error);
     throw error;
