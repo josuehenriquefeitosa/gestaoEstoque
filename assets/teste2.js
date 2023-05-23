@@ -1,124 +1,120 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mysql = require('mysql2');
+const server = require('./server.js');
 
-// Importe as classes e o estoque
-const {
-  Usuario,
-  Gerente,
-  Vendedor,
-  Produto,
-  Estoque
-} = require('./main.js');
-
-const app = express();
-const port = 3000;
-
-// Configure o body-parser para lidar com solicitações JSON
-app.use(bodyParser.json());
-
-// Crie uma conexão com o banco de dados MySQL
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'seu_usuario',
-  password: 'sua_senha',
-  database: 'data_base'
-});
-
-// Estabeleça a conexão com o banco de dados
-connection.connect((err) => {
-  if (err) {
-    console.error('Erro ao conectar ao banco de dados:', err);
-  } else {
-    console.log('Conexão bem-sucedida com o banco de dados MySQL.');
+class Usuario {
+  constructor(nome, email, senha) {
+    this.nome = nome;
+    this.email = email;
+    this.senha = senha;
   }
-});
+}
 
-// Crie uma rota GET para exibir os clientes
-app.get('/clientes', async (req, res) => {
-  const query = 'SELECT * FROM CLIENTES';
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao obter os clientes' });
-    } else {
-      res.json(results);
-    }
-  });
-});
+class Gerente extends Usuario {
+  constructor(nome, email, senha) {
+    super(nome, email, senha);
+    this.nivel = "gerente";
+  }
 
-// Crie uma rota POST para adicionar um novo cliente
-app.post('/clientes', async (req, res) => {
-  const {
-    nome,
-    telefone,
-    email,
-    cpf,
-    data_nascimento,
-    sexo,
-    logradouro,
-    numero,
-    complemento,
-    estado,
-    cidade
-  } = req.body;
+  mostrarProdutos() {
+    estoque.mostrarProdutos();
+  }
 
-  const query = 'INSERT INTO CLIENTES (nome, telefone, email, cpf, data_nascimento, sexo, logradouro, numero, complemento, estado, cidade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  const values = [
-    nome,
-    telefone,
-    email,
-    cpf,
-    data_nascimento,
-    sexo,
-    logradouro,
-    numero,
-    complemento,
-    estado,
-    cidade
-  ];
+  cadastrarProduto(produto) {
+    estoque.adicionarProduto(produto);
+  }
 
-  connection.query(query, values, (err, result) => {
-    if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao adicionar o cliente' });
-    } else {
-      res.json({ success: true });
-    }
-  });
-});
+  removerProduto(codigo) {
+    estoque.removerProduto(codigo);
+  }
 
-// Crie uma rota GET para exibir os produtos
-app.get('/produtos', async (req, res) => {
-  const query = 'SELECT * FROM PRODUTOS';
-  connection.query(query, (err, results) => {
-    if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao obter os produtos' });
-    } else {
-      res.json(results);
-    }
-  });
-});
+  realizarVenda(id, quantidade) {
+    estoque.venderProduto(id, quantidade);
+  }
+}
 
-// Crie uma rota POST para adicionar um novo produto
-app.post('/produtos', async (req, res) => {
-  const { nome, preco, quantidade } = req.body;
+class Produto {
+  constructor(nome, preco, quantidade) {
+    this.nome = nome;
+    this.preco = preco;
+    this.quantidade = quantidade;
+  }
+}
 
-  const query = 'INSERT INTO PRODUTOS (nome, preco, quantidade) VALUES (?, ?, ?)';
-  const values = [nome, preco, quantidade];
+class Estoque {
+  mostrarProdutos() {
+    server.selectProduct()
+      .then(produtos => {
+        console.log('------------MOSTRAR PRODUTOS-----------------');
+        console.log(produtos);
+        console.log('--------------------------------------------');
+      })
+      .catch(error => {
+        console.error('Erro ao obter os produtos:', error);
+      });
+  }
 
-  connection.query(query, values, (err, result) => {
-    if (err) {
-      console.error('Erro ao executar a consulta:', err);
-      res.status(500).json({ error: 'Erro ao adicionar o produto' });
-    } else {
-      res.json({ success: true });
-    }
-  });
-});
+  adicionarProduto(produto) {
+    server.insertProduct(produto)
+      .then(() => {
+        console.log('Produto adicionado com sucesso!');
+      })
+      .catch(error => {
+        console.error('Erro ao adicionar o produto:', error);
+      });
+  }
 
-// Inicialize o servidor
-app.listen(port, () => {
-  console.log(`Servidor em execução na porta ${port}`);
-});
+  removerProduto(id) {
+    server.deleteProduct(id)
+      .then(() => {
+        console.log(`Produto com ID ${id} removido com sucesso!`);
+      })
+      .catch(error => {
+        console.error('Erro ao remover o produto:', error);
+      });
+  }
+
+  venderProduto(id, quantidade) {
+    server.selectProduct()
+      .then(produtos => {
+        const produto = produtos.find(produto => produto.id === id);
+        if (produto) {
+          if (produto.quantidade >= quantidade) {
+            produto.quantidade -= quantidade;
+            console.log(`Venda realizada: ${quantidade} unidades do produto ${produto.nome}`);
+            // Atualizar o produto no banco de dados com a quantidade atualizada
+            server.updateProduct(produto.id, produto)
+              .then(() => {
+                console.log('Produto atualizado no banco de dados');
+              })
+              .catch(error => {
+                console.error('Erro ao atualizar o produto:', error);
+              });
+          } else {
+            console.log(`Não há estoque suficiente para vender ${quantidade} unidades do produto ${produto.nome}`);
+          }
+        } else {
+          console.log(`Produto não encontrado com o ID ${id}`);
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao obter os produtos:', error);
+      });
+  }
+}
+
+// --------------- PRINCIPAL --------------------------
+const estoque = new Estoque();
+const gerente = new Gerente("João", "joao@mail.com", "senha123");
+
+gerente.mostrarProdutos();
+console.log();
+estoque.adicionarProduto(new Produto("Chave allen", 89.90, 20));
+console.log();
+gerente.cadastrarProduto(new Produto("alicate universal", 149.90, 30));
+console.log();
+//gerente.removerProduto(22);
+console.log();
+//gerente.removerProduto(23);
+console.log();
+//gerente.removerProduto(24);
+console.log();
+gerente.realizarVenda(1,1);
