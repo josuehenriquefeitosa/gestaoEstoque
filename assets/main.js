@@ -123,5 +123,7 @@ console.log();
 gerente.cadastrarProduto(new Produto("balecin", 222, 333));
 console.log();
 gerente.realizarVenda(97,10);
+console.log();
 gerente.mostrarProdutos();
+console.log();
 gerente.removerProduto(96)

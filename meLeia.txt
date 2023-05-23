@@ -1,0 +1,25 @@
+*******************************************************************************************************************
+  ---------------------------------------------------------------------------------------------------------------
+        ========================== OBSERVAÇÕES ======================
+        
+    1- O diretorio gestaoEstoque contem todos os arquivos e pastas desse projeto;
+
+    2- A ideia é montar uma aplicação web de gestao de estoque, ou se preferir uma aplicação completa
+      para o controle de vendas/receitas/despesas, cadastro de produtos/clientes/fornecedores, geração de relatorios
+      e dashboards para o gestor de determinada empresa;
+
+    3- A fase 1 do projeto ja foi implementada, que é justamente a criação do banco de dados e a manipulação 
+      do mesmo pelo arquivo './assets/main.js'. Nele pode-se manipular os dados de forma basica no banco para realizar
+      cadastro, pesquisa,modificação,remoção e relação de produtos existentes no mysql. A fase 2 não foi 
+      possível implementar ,que é justamente a vinculação do Front-end, com o Back-end e o com o banco de dados, 
+      por falta de tempo e de espertise. Foram criadas as paginas iniciais do site,porem apenas algo visual 
+      e não funcional. 
+
+    4- Pretendemos seguir com esse projeto mesmo após a avaliação, para nos servir de portifólio e 
+      mostraremos o andamento gradual do projeto;
+
+
+
+
+  ---------------------------------------------------------------------------------------------------------------
+******************************************************************************************************************
