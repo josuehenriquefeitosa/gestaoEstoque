@@ -93,23 +93,24 @@ app.listen(port, () => {
   
 
       // ----------------------------PRODUTOS---------------------------------------
-      
+  
+
   console.log()
   console.log('-----------CADASTRO PRODUTOS------------------')
   console.log('INSERT INTO PRODUTOS');
   const resultado4 = await data_base.insertProduct({nome:`bieleta`,preco:`333`,quantidade:`111`});
   console.log(resultado4[0]);
   console.log()
-  console.log()
   
-
+  
+  console.log()
   console.log('------------MOSTRAR PRODUTOS-----------------')
   console.log('SELECT * FROM PRODUTOS');
   const produtos = await data_base.selectProduct();
   console.log(produtos[0]);
   console.log('-----------------------------')
   console.log()
-  console.log()
+
 
 
   console.log('')

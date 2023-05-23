@@ -1,4 +1,5 @@
-const index = require('./index')
+//const index = require('./index')
+const { selectCustomers, insertCustomer, updateCustomer, deleteCustomer, selectCustomerName, insertProduct, selectProductName,selectProduct, updateProduct, deleteProduct} = require('./server')
 
 
 
@@ -31,8 +32,7 @@ class Gerente extends Usuario {
     
 
 class Produto {
-    constructor(codigo, nome, preco, quantidade) {
-        this.codigo = codigo;
+    constructor(nome, preco, quantidade) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -40,20 +40,19 @@ class Produto {
 }
   
 class Estoque {
-    constructor() {
-        this.produtos = [];
-    }
+    
 
     adicionarProduto(produto) {
-        this.produtos.push(produto);
+        insertProduct(produto)
     }
 
-    removerProduto(codigo) {
-        this.produtos = this.produtos.filter((produto) => produto.codigo !== codigo);
+    removerProduto(id) {
+        deleteProduct(id)
+       
     }
 
-    venderProduto(codigo, quantidade) {
-        const produto = this.produtos.find((produto) => produto.codigo === codigo);
+    venderProduto(id, quantidade) {
+        const produto = this.produtos.find((produto) => produto.id === id);
         if (produto) {
             if (produto.quantidade >= quantidade) {
                 produto.quantidade -= quantidade;
@@ -62,9 +61,8 @@ class Estoque {
                 console.log(`Não há estoque suficiente para vender ${quantidade} unidades do produto ${produto.nome}`);
             }
         } else {
-        console.log(`Produto não encontrado com o código ${codigo}`);
-        }
-    }
+        console.log(`Produto não encontrado com o código ${id}`);
+    }}
 }
 
 
@@ -73,10 +71,13 @@ const estoque = new Estoque();
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
 
 
-estoque.adicionarProduto(new Produto("001", "Camiseta", 29.90, 50));
-estoque.adicionarProduto(new Produto("002", "Calça Jeans", 89.90, 20));
-gerente.cadastrarProduto(new Produto("003", "Tênis", 149.90, 30));
-gerente.removerProduto("002");
+estoque.adicionarProduto(new Produto("Camiseta", 29.90, 50));
+estoque.adicionarProduto(new Produto("Calça Jeans", 89.90, 20));
+gerente.cadastrarProduto(new Produto("Tênis", 149.90, 30));
+//gerente.removerProduto(59);
+
+
+
 
 
 
