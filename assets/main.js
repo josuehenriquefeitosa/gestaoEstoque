@@ -112,7 +112,7 @@ const estoque = new Estoque();
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
 
 
-gerente.mostrarProdutos();
+/*gerente.mostrarProdutos();
 console.log();
 estoque.adicionarProduto(new Produto("paralama", 400, 250));
 console.log();
@@ -125,5 +125,5 @@ console.log();
 gerente.realizarVenda(97,10);
 console.log();
 gerente.mostrarProdutos();
-console.log();
-gerente.removerProduto(96)
+console.log();*/
+gerente.removerProduto(68)

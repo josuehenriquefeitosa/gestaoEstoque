@@ -262,3 +262,19 @@
     width: 100%;
     height: 40px;
 } 
+
+#form2{
+    display: flex;
+}
+
+
+#exibirDados{
+    height: 35px;
+    width: 60px;
+    color: rgb(255, 255, 255);
+    background-color:#1a547d ;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
