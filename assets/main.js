@@ -41,6 +41,10 @@ class Produto {
   
 class Estoque {
     
+    mostrarProdutos(){
+        selectProduct()
+    }
+
 
     adicionarProduto(produto) {
         insertProduct(produto)
@@ -65,16 +69,18 @@ class Estoque {
     }}
 }
 
-
+// --------------- PRINCIPAL --------------------------
 const estoque = new Estoque();
-
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
 
+estoque.mostrarProdutos()
+//estoque.adicionarProduto(new Produto("chave de torque", 29.90, 50));
+//estoque.adicionarProduto(new Produto("Chave allen", 89.90, 20));
+//gerente.cadastrarProduto(new Produto("alicate universal", 149.90, 30));
+//gerente.removerProduto(22);
+//gerente.removerProduto(23);
+//gerente.removerProduto(24);
 
-estoque.adicionarProduto(new Produto("Camiseta", 29.90, 50));
-estoque.adicionarProduto(new Produto("Calça Jeans", 89.90, 20));
-gerente.cadastrarProduto(new Produto("Tênis", 149.90, 30));
-//gerente.removerProduto(59);
 
 
 
