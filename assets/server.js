@@ -66,13 +66,6 @@ async function insertProduct(product){
 async function selectProduct() {
   const conn = await connect();
   const sql = 'SELECT * FROM data_base.produtos;'
-  console.log()
-  console.log('------------MOSTRAR PRODUTOS-----------------')
-  console.log('SELECT * FROM PRODUTOS');
-  const produtos = await data_base.selectProduct();
-  console.log(produtos[0]);
-  console.log('-----------------------------')
-  console.log()
   return await conn.query(sql);
 }
 

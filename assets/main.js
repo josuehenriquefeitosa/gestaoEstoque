@@ -1,7 +1,4 @@
-//const index = require('./index')
-const { selectCustomers, insertCustomer, updateCustomer, deleteCustomer, selectCustomerName, insertProduct, selectProductName,selectProduct, updateProduct, deleteProduct} = require('./server')
-
-
+const server = require('./server.js');
 
 class Usuario {
     constructor(nome, email, senha) {
@@ -15,6 +12,10 @@ class Gerente extends Usuario {
     constructor(nome, email, senha) {
         super(nome, email, senha);
         this.nivel = "gerente";
+    }
+    
+    mostrarProdutos(){
+        estoque.mostrarProdutos();
     }
 
     cadastrarProduto(produto) {
@@ -41,8 +42,16 @@ class Produto {
   
 class Estoque {
     
-    mostrarProdutos(){
-        selectProduct()
+    mostrarProdutos() {
+        server.selectProduct()
+            .then(produtos => {
+                console.log('------------MOSTRAR PRODUTOS-----------------');
+                console.log(produtos[0]);
+                console.log('--------------------------------------------');
+            })
+            .catch(error => {
+                console.error('Erro ao obter os produtos:', error);
+            });
     }
 
 
@@ -73,7 +82,7 @@ class Estoque {
 const estoque = new Estoque();
 const gerente = new Gerente("João", "joao@mail.com", "senha123");
 
-estoque.mostrarProdutos()
+gerente.mostrarProdutos()
 //estoque.adicionarProduto(new Produto("chave de torque", 29.90, 50));
 //estoque.adicionarProduto(new Produto("Chave allen", 89.90, 20));
 //gerente.cadastrarProduto(new Produto("alicate universal", 149.90, 30));
